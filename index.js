@@ -40,13 +40,10 @@ app.get("/details", (req, res) => {
 
 app.get("/", (req, res) => {
     var k = req.cookies.Userstatus;
-    if (k) {
-        eventModule.find({}).then((data) => {
-            res.render("index", { event: data, main: k });
-        })
-    } else {
-        res.redirect("\loginUser");
-    }
+    console.log(k);
+    eventModule.find({}).then((data) => {
+        res.render("index", { event: data, main: k });
+    })
 });
 app.get("/loginUser", (req, res) => {
     var k = req.cookies.Userstatus;
