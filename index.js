@@ -69,7 +69,8 @@ app.get("/checkevents", (req, res) => {
 
 })
 app.get("/logout", (req, res) => {
-    localStorage.clear();
+    var k = req.cookies.Userstatus;
+    localStorage.removeItem(k);
     res.clearCookie("User status");
     res.redirect('/')
 })
